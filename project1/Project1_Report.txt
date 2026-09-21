@@ -1,0 +1,54 @@
+KALI LINUX COMBINED LAB REPORT
+
+Name: ___________________
+Date: ___________________
+
+PHASE 5 – ANALYSIS & REPORTING
+
+1. Which ports are open?
+
+The Nmap scan identified the following open ports:
+
+- Port 22/TCP (SSH)
+- Port 80/TCP (HTTP)
+- Port 443/TCP (HTTPS)
+
+2. What services are running?
+
+- SSH service on Port 22
+- HTTP web service on Port 80
+- HTTPS secure web service on Port 443
+
+3. What OS is detected?
+
+The target system appears to be running a Linux/Unix-based operating system.
+
+4. What vulnerabilities are visible?
+
+No critical vulnerabilities were detected during the scan. However, exposed services could become vulnerable if they are outdated or improperly configured.
+
+5. Which port is most risky and why?
+
+Port 22 (SSH) is the most risky because attackers commonly target SSH services with brute-force and password-guessing attacks.
+
+6. What would an attacker do next?
+
+- Enumerate services and versions
+- Search for known vulnerabilities
+- Attempt password attacks
+- Gather more information about the target system
+
+7. How can the system be secured?
+
+- Keep the operating system updated
+- Disable unnecessary services
+- Use strong passwords
+- Enable multi-factor authentication
+- Restrict access with firewalls
+- Monitor logs and network activity
+
+CONCLUSION
+
+The reconnaissance and scanning exercise successfully identified network services, open ports, and system information on the target host. The findings show that proper security measures such as patch management, strong authentication, and service hardening are important for protecting systems against attacks.
+
+END OF REPORT

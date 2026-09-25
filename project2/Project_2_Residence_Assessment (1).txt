@@ -1,346 +1,114 @@
-PROJECT 2
+Skip to content
+Navigation Menu
+Platform
+Solutions
+Resources
+Open Source
+Enterprise
+Pricing
+zico-jnr
+/
+NOTZERO--CYBERSECURITY-PROJECT
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security and quality
+Insights
+NOTZERO--CYBERSECURITY-PROJECT/PROJECT 1- KALI LINUX
+/project 1 report.txt
+Go to file
+ 
 
-INFRASTRUCTURE THREAT AND VULNERABILITY ASSESSMENT OF A RESIDENTIAL HOUSE
+Code
 
+Blame
+74 lines (45 loc) · 2.7 KB
 
-1.0 INTRODUCTION
+NOTZERO CYBERSECURITY PRACTICAL PROJECT
 
-A residence can be considered an infrastructure because it contains physical facilities, electrical systems, communication technologies, information assets, and people that require protection.
+PROJECT 1: END-TO-END RECONNAISSANCE AND SCANNING USING KALI LINUX
 
-This project assesses a residential house by identifying its major domains, possible threats, existing vulnerabilities, associated risks, and appropriate mitigation measures.
 
-The assessment focuses on six major domains:
 
-1. Physical Security
-2. Electrical System
-3. Network and Internet Infrastructure
-4. Fire and Environmental Safety
-5. People and Occupants
-6. Data and Information Security
+ 1. Introduction
 
+This project involved performing reconnaissance and network scanning using Kali Linux. The main objective was to gather information about an authorized target, identify open ports and services, and analyze possible security concerns.
 
-2.0 DESCRIPTION OF THE RESIDENCE
+The authorized target used for the practical was **scanme.nmap.org**.
 
-The infrastructure assessed is a typical residential house occupied by family members.
+ 2. Tools and Commands Used
 
-The residence contains:
+The main tools and commands used were:
 
-- Main entrance/gate
-- Doors and windows
-- Electrical installations and power outlets
-- Internet/Wi-Fi router
-- Mobile phones and computers
-- Personal and household documents
-- Household appliances
-- Kitchen and cooking equipment
-- Storage areas
-- People and visitors
+- Kali Linux
+- Nmap
+- ip a
+- ip route
+- ping
+- nslookup
+- whois
+- ss -tuln
 
-The assessment considers both physical and cybersecurity-related risks because modern residences depend on technology as well as physical infrastructure.
+The local IP address identified during the practical was **192.168.1.6**.
 
+Connectivity to the target was tested using ping, and the result showed **4 packets received with 0% packet loss**.
 
-3.0 IDENTIFICATION OF DOMAINS
+3. Reconnaissance Results
 
-1. Physical Security
-   Doors, windows, gate, locks and access to the residence.
+DNS reconnaissance using nslookup identified the IPv4 address of "scanme.nmap.org" as "45.33.32.156".
 
-2. Electrical System
-   Electrical wiring, sockets, appliances and power equipment.
+WHOIS was also used to gather domain-related information about the authorized target.
 
-3. Network and Internet
-   Router, Wi-Fi network, computers and mobile devices.
+ 4. Nmap Scanning Results
 
-4. Fire and Environmental Safety
-   Fire hazards, smoke, heat, flooding and emergency conditions.
+Nmap scanning identified the following open TCP ports:
 
-5. People and Occupants
-   Residents, visitors and human activities.
+| Port | Service |
+|---|---|
+| 22 | SSH |
+| 80 | HTTP |
+| 9929 | nping-echo |
+| 31337 | Elite |
 
-6. Data and Information
-   Personal information, passwords, documents and digital files.
+Port **25/tcp** was reported as filtered, while **443/tcp** was closed during the specific port scan.
 
+Service detection, OS detection and aggressive scanning were also performed. The OS detection scan did not provide an exact operating-system match.
 
-4.0 THREAT IDENTIFICATION
+A vulnerability scan was performed using Nmap's vulnerability scripts. An `http-sql-injection` script produced an execution error, so **no SQL injection vulnerability was confirmed**.
 
-4.1 Physical Security Threats
+5. Security Analysis
 
-- Burglary
-- Theft
-- Unauthorized entry
-- Vandalism
-- Physical attack
-- Loss of keys
+The scan showed that several services were exposed to network connections. Open ports are not automatically vulnerabilities, but unnecessary exposed services can increase the attack surface of a system.
 
-4.2 Electrical System Threats
+The unusual service found on port **31337** would require further investigation to determine whether it is necessary and properly secured.
 
-- Electrical fire
-- Electric shock
-- Short circuit
-- Power surge
-- Damage to electrical appliances
+Recommended security measures include:
 
-4.3 Network and Internet Threats
+- Close unnecessary ports.
+- Disable unused services.
+- Use a firewall to restrict access.
+- Keep systems and services updated.
+- Use strong authentication.
+- Restrict SSH access to authorized users.
+- Perform regular vulnerability scans.
 
-- Unauthorized Wi-Fi access
-- Password attacks
-- Malware
-- Phishing
-- Unauthorized access to computers or phones
-- Data interception
-- Compromise of network-connected devices
+6. Conclusion
 
-4.4 Fire and Environmental Threats
+This practical helped me understand how reconnaissance and network scanning are performed using Kali Linux and Nmap. I learned how to identify network information, perform DNS and WHOIS reconnaissance, discover open ports and services, and analyze scan results.
 
-- House fire
-- Smoke
-- Excessive heat
-- Flooding
-- Water damage
-- Poor ventilation
-
-4.5 People and Occupant Threats
-
-- Unauthorized visitors
-- Human error
-- Social engineering
-- Accidental disclosure of information
-- Unsafe behavior
-- Deliberate misuse by an occupant
-
-4.6 Data and Information Threats
-
-- Data theft
-- Unauthorized access
-- Password compromise
-- Device theft
-- Malware infection
-- Loss of important documents
-
-
-5.0 IDENTIFICATION AND CLASSIFICATION OF VULNERABILITIES
-
-5.1 Physical Security
-
-- Weak or old door locks — Physical
-- Unsecured windows — Physical
-- Poor outdoor lighting — Physical
-- Spare keys accessible to unauthorized people — Physical
-- No clearly defined visitor-control procedure — Administrative
-
-5.2 Electrical System
-
-- Overloaded electrical sockets — Physical
-- Damaged extension cables — Physical
-- Exposed or damaged wiring — Physical
-- Lack of regular electrical inspection — Administrative
-- Lack of surge protection for sensitive equipment — Technical
-
-5.3 Network and Internet
-
-- Weak Wi-Fi password — Technical
-- Router administrator password not changed from default — Technical
-- Router firmware not regularly updated — Technical
-- Computers or phones not regularly updated — Technical
-- No separate guest Wi-Fi network — Technical
-- Lack of household cybersecurity rules — Administrative
-
-5.4 Fire and Environmental Safety
-
-- No readily accessible fire extinguisher — Physical
-- No smoke detection system — Technical
-- Emergency exits may not be clearly identified — Physical
-- Lack of emergency evacuation procedure — Administrative
-- Flammable materials stored near heat sources — Physical
-
-5.5 People and Occupants
-
-- Visitors may not be formally monitored — Administrative
-- Residents may share passwords — Administrative
-- Lack of cybersecurity awareness — Administrative
-- People may leave devices unlocked — Technical
-- Sensitive information may be discussed openly — Administrative
-
-5.6 Data and Information
-
-- Weak or reused passwords — Technical
-- Lack of regular backups — Technical
-- Important documents stored in unsecured locations — Physical
-- No formal procedure for protecting sensitive information — Administrative
-- Devices may not use screen locks — Technical
-
-
-6.0 RISK IDENTIFICATION AND ASSESSMENT
-
-6.1 Physical Security Risks
-
-- Burglary + weak door lock = Unauthorized entry and theft of property — Critical
-- Intrusion + poor outdoor lighting = Intruder may approach without detection — Major
-- Theft + unsecured windows = Property may be stolen — Major
-- Unauthorized entry + poor visitor control = Unknown individuals may gain access — Major
-
-6.2 Electrical System Risks
-
-- Electrical fire + overloaded sockets = Fire could damage the building and endanger occupants — Critical
-- Electric shock + damaged wiring = Occupants could suffer electrical injury — Critical
-- Power surge + lack of surge protection = Computers and electronics could be damaged — Major
-- Short circuit + damaged extension cable = Equipment damage or fire — Critical
-
-6.3 Network and Internet Risks
-
-- Unauthorized access + weak Wi-Fi password = Unauthorized person could access the home network — Major
-- Cyberattack + outdated router firmware = Router vulnerabilities could be exploited — Major
-- Malware + unpatched devices = Malware could infect devices and cause data loss — Major
-- Password attack + weak/reused passwords = Accounts could be compromised — Major
-- Unauthorized device access + no guest network = Visitors could potentially access main network resources — Major
-
-6.4 Fire and Environmental Risks
-
-- Fire + no fire extinguisher = Small fire may become difficult to control — Critical
-- Fire/smoke + no smoke detection = Occupants may receive late warning — Major
-- Fire + poor storage of flammable materials = Fire could spread more quickly — Critical
-- Flooding + poor drainage = Water could damage property and electrical equipment — Major
-
-6.5 People and Occupant Risks
-
-- Unauthorized visitor + poor visitor monitoring = Theft or physical harm could occur — Major
-- Social engineering + lack of awareness = Personal/security information could be disclosed — Major
-- Human error + lack of security procedures = Accidental security incidents may occur — Minor
-- Device misuse + unlocked devices = Unauthorized people may access personal information — Major
-
-6.6 Data and Information Risks
-
-- Data theft + weak passwords = Personal accounts and information may be compromised — Major
-- Data loss + no regular backup = Important files may be permanently lost — Major
-- Unauthorized access + unlocked devices = Private information may be accessed — Major
-- Document theft + unsecured documents = Sensitive personal information may be exposed — Major
-
-
-7.0 RISK SUMMARY
-
-Critical risks:
-- Electrical fire
-- Electric shock
-- Burglary
-- Uncontrolled fire
-
-Major risks:
-- Wi-Fi compromise
-- Malware
-- Data theft
-- Unauthorized entry
-- Flooding
-
-Minor risks:
-- General human-error incidents with limited consequences
-
-
-8.0 MITIGATION MEASURES
-
-8.1 Physical Security
-
-- Install strong and reliable door locks.
-- Repair damaged doors and windows.
-- Improve outdoor lighting.
-- Keep keys secure.
-- Avoid leaving spare keys in obvious locations.
-- Monitor unfamiliar visitors.
-- Consider CCTV or other appropriate security measures where practical.
-
-8.2 Electrical Security
-
-- Avoid overloading electrical sockets.
-- Replace damaged extension cables.
-- Repair exposed or damaged wiring through a qualified electrician.
-- Conduct periodic electrical inspections.
-- Use appropriate circuit protection.
-- Use surge protection for sensitive electronic equipment.
-- Keep electrical equipment away from water.
-
-8.3 Network Security
-
-- Use a strong, unique Wi-Fi password.
-- Change the router's default administrator credentials.
-- Keep router firmware updated.
-- Enable WPA2 or WPA3 security where supported.
-- Update computers and mobile devices regularly.
-- Use antivirus/security software where appropriate.
-- Create a guest Wi-Fi network for visitors when supported.
-- Remove unknown devices from the network.
-- Avoid sharing passwords unnecessarily.
-
-8.4 Fire and Environmental Safety
-
-- Keep an appropriate fire extinguisher accessible.
-- Install smoke alarms where practical.
-- Keep emergency exits clear.
-- Store flammable materials safely and away from heat sources.
-- Develop a basic evacuation procedure.
-- Ensure occupants know how to respond to a fire.
-- Keep electrical equipment away from water.
-- Address drainage problems that could cause flooding.
-
-8.5 People and Occupant Security
-
-- Establish basic visitor-control procedures.
-- Educate occupants about phishing and social engineering.
-- Avoid sharing passwords.
-- Lock devices when leaving them unattended.
-- Avoid discussing sensitive information where unauthorized people can hear.
-- Establish simple emergency procedures.
-
-8.6 Data and Information Security
-
-- Use strong, unique passwords.
-- Enable multi-factor authentication where available.
-- Lock computers and smartphones.
-- Back up important files regularly.
-- Store sensitive physical documents securely.
-- Avoid storing passwords in exposed locations.
-- Keep operating systems and applications updated.
-- Dispose of sensitive documents securely.
-
-
-9.0 PRIORITY ACTION PLAN
-
-Priority 1 — Electrical and Fire Safety
-
-- Inspect damaged wiring and electrical connections.
-- Avoid overloaded sockets.
-- Obtain an appropriate fire extinguisher.
-- Ensure emergency exits remain accessible.
-
-Priority 2 — Physical Security
-
-- Check the condition of all door and window locks.
-- Improve lighting around entry points.
-- Secure spare keys.
-- Establish basic visitor-control procedures.
-
-Priority 3 — Network Security
-
-- Change the Wi-Fi password if it is weak or shared widely.
-- Change the router administrator password.
-- Update router firmware.
-- Update computers and mobile devices.
-- Remove unknown devices from the network.
-
-Priority 4 — Data Protection
-
-- Use strong passwords.
-- Enable multi-factor authentication.
-- Lock devices when unattended.
-- Back up important files.
-- Secure sensitive documents.
-
-
-10.0 CONCLUSION
-
-The assessment demonstrates that a residential house contains multiple interconnected security domains. These include physical security, electrical infrastructure, network and Internet systems, fire and environmental safety, people, and information.
-
-The assessment identified several vulnerabilities that could be exploited by different threats. The vulnerabilities were categorized as administrative, technical, or physical, while the resulting risks were classified as Critical, Major, or Minor.
-
-Critical risks such as electrical fire, electric shock, burglary, and uncontrolled fire require immediate attention. Major risks involving network security, unauthorized access, data protection, and environmental conditions should also be addressed.
-
-Implementing appropriate administrative, technical, and physical controls can reduce the likelihood and impact of these threats and improve the overall security and safety of the residence.
-
-The assessment should also be reviewed periodically because new vulnerabilities and threats can appear as people, technology, and the physical environment change.
+The practical also showed that an open port does not automatically mean a system has been compromised, but exposed services should be reviewed and properly secured.
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
